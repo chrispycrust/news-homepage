@@ -1,0 +1,140 @@
+/* 
+? how can I instruct the browser to work with the font already in my project file?
+
+- want each article section to be clickable
+
+extra shit i wanna try
+- a slowly scrolling ticker for the different article pieces in section 2 and 3, but can be influenced by users mouse
+*/
+
+
+/*---------------------------------------------------------------
+------------------------ GLOBAL STYLES --------------------------
+-----------------------------------------------------------------*/
+
+/* borrowed off Josh Comeau */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+  
+html, body {
+    height: 100%;
+}
+  
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+  
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+  
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+/* other suggested global styles from Codecademy full stack pathway */
+
+* { /* resetting defaults */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%; 
+}
+
+/*---------------------------------------------------------------
+------------------------ OTHER STYLES --------------------------
+-----------------------------------------------------------------*/
+
+body {
+    background-color: hsl(36, 100%, 99%);
+    font-family: 'Inter', /* find another font fall-back before sans serif , */sans-serif;
+}
+
+p {
+    font-size: 15px;
+    color: hsl(236, 13%, 42%)
+}
+
+h3 {
+    color:hsl(233, 8%, 79%);
+}
+
+button {
+    color: hsl(36, 100%, 99%);
+    background-color: hsl(5, 85%, 63%);
+    border: none;
+}
+
+nav a:hover {
+    color: hsl(5, 85%, 63%);
+}
+
+button:hover,
+.new {
+    background-color: hsl(240, 100%, 5%);
+}
+
+.new a h4 {
+    color: hsl(36, 100%, 99%);
+    text-decoration: none; /* seems to be ineffective, may need to also reset all the pseudo-classes for link clicking */
+}
+
+h2,
+.new a:hover h4 {
+    color: hsl(35, 77%, 62%);
+}
+
+.other a:hover h4 {
+    color: hsl(5, 85%, 63%);
+}
+
+footer { 
+    font-size: 11px; 
+    text-align: center; 
+}
+
+footer a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+/*---------------------------------------------------------------
+------------------------ MEDIA QUERIES --------------------------
+-----------------------------------------------------------------*/
+
+/* for mobile 
+
+anything around 375px or under triggers these changes
+? should the stacking happen when screen is smaller than 1440px?
+? not sure whether to use max or min-width
+max-width (add styles on small screens), min-width (add styles on large screens) 
+
+small screens
+- sections to stack on top of each other
+- the sections in main will also stack
+- the nav bar at the top disappears, and turns into a nav menu with hamburger icon, sliding in
+- background image dedicated to mobile users for main section is used instead of the large one (image-web-3-mobile.jpg)
+
+*/
+
+@media (min-width: 375px) {
+
+}
