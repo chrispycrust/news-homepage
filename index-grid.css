@@ -1,0 +1,295 @@
+/*---------------------------------------------------------------
+------------------------ DEBUGGING --------------------------
+-----------------------------------------------------------------*/
+
+.content {
+    border: 1px solid red;
+}
+
+nav {
+    background: rgb(248, 198, 104);
+}
+
+nav ul {
+    background: chartreuse;
+}
+
+nav ul a {
+    background: blue;
+}
+
+main { 
+    background: yellow;
+}
+
+article {
+    background: rgb(106, 175, 202);
+}
+
+
+/*---------------------------------------------------------------
+------------------------ GLOBAL STYLES --------------------------
+-----------------------------------------------------------------*/
+
+/* borrowed off Josh Comeau */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+html, body {
+    height: 100%;
+}
+  
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+  
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+  
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+/* other suggested global styles from Codecademy full stack pathway */
+
+html {
+    font-size: 100%; 
+}
+
+/* my own default */
+
+a {
+    text-decoration: none;
+}
+
+/*---------------------------------------------------------------
+------------------------ MOBILE --------------------------
+-----------------------------------------------------------------
+
+anything around 375px or under triggers these changes
+? should the stacking happen when screen is smaller than 1440px?
+? not sure whether to use max or min-width
+max-width (add styles on small screens), min-width (add styles on large screens) 
+
+small screens
+- sections to stack on top of each other
+- the sections in main will also stack
+- the nav bar at the top disappears, and turns into a nav menu with hamburger icon, sliding in
+- background image dedicated to mobile users for main section is used instead of the large one (image-web-3-mobile.jpg)
+
+?
+not sure why the entire block isn't centering
+how can I instruct the browser to work with the font already in my project file?
+are the 01 02 03 counters in section "other" semantic? do I need to give it a heading h4? or are they just for decorative purposes?
+want nav links to span entire block
+the last article section seems to line up perfectly with the "new" sidebar 
+how many rows and what height should each row be?
+for all sections, what element determines the height? e.g in 'other' section, does the pic or content determine it? or is the section fixed?
+
+OVERFLOW for all the descriptions in all sections if they go beyond the available space?
+think Comeau talks about ellipsis in Mod 5/6
+
+grid layout
+3 columns equal width, but max width never goes beyond ... 80px of screen?
+grid gap: 24px
+
+if sections for mobile stacks on top of each other, when screen expands, how do the contents rearrange? 
+
+ACCESSIBILITY CONCERNS
+- make sure units are flexible where needed
+- focus style?
+- set up workspace for screen readers
+- test with different browsers and screen sizes
+
+EXTRA SHIT FOR LATER
+- a slowly scrolling ticker for the different article pieces in section 2 and 3, but can be influenced by users mouse
+- animationsssss
+- try doing this with only flex
+- use CSS variables where possible or necessary
+
+*/
+
+body {
+    /* background: red; */
+    font-family: 'Inter', /* find another font fall-back before sans serif */ sans-serif;
+    display: flex;
+    place-content: center;
+}
+
+.content {
+    display: grid;
+    grid-gap: 24px;
+    max-width: 100%;
+    margin: 0 20px;
+}
+
+nav ul {
+    display: none;
+}
+
+h1 {
+    font-size: 2rem;
+    line-height: 3.5rem;
+}
+
+h2 {
+    font-size: 3rem;
+    line-height: 3rem;
+}
+
+h3 {
+    font-size: 2rem;
+    /* color:hsl(233, 8%, 79%); */
+    color: hsl(0, 0%, 100%);
+}
+
+h4 {
+    font-size: 1.1rem;
+}
+
+h5 {
+    font-size: 1rem;
+    font-weight: ;
+}
+
+h3
+.new a {
+    color: hsl(36, 100%, 99%);
+}
+
+h3,
+.new a:hover h4 {
+    color: hsl(35, 77%, 62%);
+}
+
+.other a:hover h4 {
+    color: hsl(5, 85%, 63%);
+}
+
+p {
+    font-size: 1rem;
+    color: hsl(236, 13%, 42%)
+}
+
+button {
+    color: hsl(36, 100%, 99%);
+    background-color: hsl(5, 85%, 63%);
+    border: none;
+    padding: 10px 24px;
+    max-width: fit-content;
+}
+
+nav a:hover {
+    color: hsl(5, 85%, 63%);
+}
+
+button:hover,
+.new {
+    background-color: hsl(240, 100%, 5%);
+}
+
+aside { 
+    font-size: 11px; 
+    text-align: center; 
+}
+
+aside a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+section.other img {
+    height: 100px;
+}
+
+section.other article {
+    display: flex;
+    flex-direction: row;
+}
+
+
+/*---------------------------------------------------------------
+------------------------ MEDIA QUERIES --------------------------
+-----------------------------------------------------------------*/
+/* for desktop */
+
+@media (min-width: 600px) {
+
+    body {
+        background-color: hsl(36, 100%, 99%);
+    }
+    
+    .content {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-rows: 3.5rem;
+        max-width: 80%;
+        height: fit-content;
+    }
+    
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;        
+        font-size: 0.9rem;
+    }
+    
+    nav ul a li {
+        padding: 0 20px;
+        color: hsl(233, 8%, 79%);
+        margin-left: 20px;
+        border: 1px solid salmon;
+    }
+
+    li:last-of-type { /* affects all li not just the last one */
+        padding-right: 0;      
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    section.other {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    main .main-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .main-content-more {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+}

@@ -1,0 +1,228 @@
+/* 
+? how can I instruct the browser to work with the font already in my project file?
+
+- want each article section to be clickable
+
+extra shit i wanna try
+- a slowly scrolling ticker for the different article pieces in section 2 and 3, but can be influenced by users mouse
+
+want nav links to span entire block
+
+accessibility
+*/
+
+/*---------------------------------------------------------------
+------------------------ DEBUGGING --------------------------
+-----------------------------------------------------------------*/
+
+.content {
+    border: 1px solid red;
+}
+
+nav {
+    background: rgb(248, 198, 104);
+}
+
+nav ul {
+    background: chartreuse;
+}
+
+nav ul a {
+    background: blue;
+}
+
+main { 
+    background: yellow;
+}
+
+section {
+    background: rgb(106, 175, 202);
+}
+
+
+/*---------------------------------------------------------------
+------------------------ GLOBAL STYLES --------------------------
+-----------------------------------------------------------------*/
+
+/* borrowed off Josh Comeau */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+  
+html, body {
+    height: 100%;
+}
+  
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+  
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+  
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+/* other suggested global styles from Codecademy full stack pathway */
+
+* { /* resetting defaults */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%; 
+}
+
+/*---------------------------------------------------------------
+------------------------ OTHER STYLES --------------------------
+-----------------------------------------------------------------
+for mobile
+
+anything around 375px or under triggers these changes
+? should the stacking happen when screen is smaller than 1440px?
+? not sure whether to use max or min-width
+max-width (add styles on small screens), min-width (add styles on large screens) 
+
+small screens
+- sections to stack on top of each other
+- the sections in main will also stack
+- the nav bar at the top disappears, and turns into a nav menu with hamburger icon, sliding in
+- background image dedicated to mobile users for main section is used instead of the large one (image-web-3-mobile.jpg)
+
+*/
+
+
+
+
+/*---------------------------------------------------------------
+------------------------ MEDIA QUERIES --------------------------
+-----------------------------------------------------------------*/
+
+/* for desktop
+
+? place content doesn't seem to align the contents in the middle?
+*/
+
+@media (min-width: 400px) {
+
+    body {
+        background-color: hsl(36, 100%, 99%);
+        font-family: 'Inter', /* find another font fall-back before sans serif , */sans-serif;
+    }
+    
+    .content {
+        display: flex;
+        flex-direction: column;
+        place-content: center;
+        min-height: 100%;
+    }
+    
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        line-height: 3.5rem;
+    }
+    
+    a.home {
+        text-decoration: none;
+    }
+    
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;
+    }
+    
+    nav ul a li {
+        font-size: 0.9rem;
+        padding: 0 20px;
+    }
+    
+    nav ul a {
+        text-decoration: none;
+        color: hsl(233, 8%, 79%);
+        margin-left: 20px;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    p {
+        font-size: 15px;
+        color: hsl(236, 13%, 42%)
+    }
+    
+    h3 {
+        /* color:hsl(233, 8%, 79%); */
+        color: hsl(0, 0%, 100%);
+    }
+    
+    button {
+        color: hsl(36, 100%, 99%);
+        background-color: hsl(5, 85%, 63%);
+        border: none;
+    }
+    
+    nav a:hover {
+        color: hsl(5, 85%, 63%);
+    }
+    
+    button:hover,
+    .new {
+        background-color: hsl(240, 100%, 5%);
+    }
+    
+    h3
+    .new a {
+        color: hsl(36, 100%, 99%);
+        text-decoration: none; /* seems to be ineffective, may need to also reset all the pseudo-classes for link clicking */
+    }
+    
+    h3,
+    .new a:hover h4 {
+        color: hsl(35, 77%, 62%);
+    }
+    
+    .other a:hover h4 {
+        color: hsl(5, 85%, 63%);
+    }
+    
+    aside { 
+        font-size: 11px; 
+        text-align: center; 
+    }
+    
+    aside a { 
+        color: hsl(228, 45%, 44%); 
+    }
+
+}

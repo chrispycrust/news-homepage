@@ -1,0 +1,335 @@
+/*---------------------------------------------------------------
+------------------------ DEBUGGING --------------------------
+-----------------------------------------------------------------*/
+
+.content {
+    border: 1px solid red;
+}
+
+nav {
+    background: rgb(248, 198, 104);
+}
+
+nav ul {
+    background: chartreuse;
+}
+
+nav ul a li {
+    border: 1px solid salmon;
+}
+
+nav ul a {
+    background: blue;
+}
+
+main { 
+    background: yellow;
+}
+
+article {
+    background: rgb(106, 175, 202);
+}
+
+
+/*---------------------------------------------------------------
+------------------------ GLOBAL STYLES --------------------------
+-----------------------------------------------------------------*/
+
+/* borrowed off Josh Comeau */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+html, body {
+    height: 100%;
+}
+  
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.9rem;
+}
+  
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+  
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+/* other suggested global styles from Codecademy full stack pathway */
+
+html {
+    font-size: 100%; 
+}
+
+/* my own defaults */
+
+a {
+    text-decoration: none; /* get rid of underline */
+}
+
+/*---------------------------------------------------------------
+------------------------ MOBILE STYLE --------------------------
+----------------------------------------------------------------- */
+
+body {
+    /* background: red; */
+    font-family: 'Inter', /* find another font fall-back before sans serif */ sans-serif;
+    display: flex;
+    place-content: center;
+    background-color: hsl(36, 100%, 99%);
+}
+
+.content { /* display in flow for mobile */
+    /*
+    display: grid;
+    grid-gap: 24px;
+    max-width: 100%;
+     */
+    margin: 0 20px; /* give more breathing room on both sides */
+}
+
+nav ul { /* hide navigation menu for mobile */
+    display: none;
+}
+
+nav a li:hover {
+    color: hsl(5, 85%, 63%);
+}
+
+h1 { /* semantically i think this is the most important in website as the logo */
+    font-size: 2rem;
+    line-height: 3.5rem;
+    color: black;
+}
+
+h2 { /* even though main content heading is larger than h1, semantically less important imho */
+    font-size: 3rem;
+    line-height: 3rem;
+    font-weight: 800;
+}
+
+h3 { /* applied to "new" section heading */
+    font-size: 2rem;
+    line-height: 2rem;
+    color: hsl(35, 77%, 62%);
+}
+
+h4 { /* new section article headings */
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: hsl(36, 100%, 99%);
+}
+
+h5 { /* other section numbers ? unsure if these have semantic meaning */ 
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    font-weight: 800; /* ? need to double check this weight */
+    color: hsl(233, 8%, 79%);
+}
+
+h6 { /* other section headings */
+    font-size: 0.9rem;
+    font-weight: 800; /* ? need to double check this weight */
+    padding-top: 0.5rem;
+    color: black;
+}
+
+p {
+    color: hsl(236, 13%, 42%);
+}
+
+button {
+    color: hsl(36, 100%, 99%);
+    letter-spacing: 5px;
+    font-weight: 700;
+    background-color: hsl(5, 85%, 63%);
+    border: none;
+    padding: 10px 24px;
+    cursor: pointer;
+}
+
+a button:hover {
+    background: hsl(240, 100%, 5%);
+}
+
+.main-content {
+    margin: 24px 0px;
+}
+
+main img { 
+    height: 100vw; /* ? not sure if specifying dimension is ok, how to make height same as width of mobile screen */
+    object-fit: cover;
+
+    /* how to swap out images in html doc? unless i use image as background in css? */
+}
+
+main p {
+    padding: 1rem 0px;
+}
+
+section.new {
+    background: hsl(240, 100%, 5%);
+    padding: 16px;
+}
+
+section.new a article {
+    padding: 24px 0px;
+    border-bottom: 1px solid hsl(233, 8%, 79%);
+}
+
+section.new a article:hover h4 { /* targeting titles of section "new" when we hover over the entire article block */
+    color: hsl(35, 77%, 62%);
+}
+
+section.new { 
+    border: 0;
+}
+
+section.new p {
+    color: hsl(233, 8%, 79%);
+}
+
+section.other article {
+    padding: 12px 0px;
+    margin: 12px 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+section.other a article:hover .other-summary h6 { /* targeting titles of section "new" when we hover over the entire article block */
+    color:hsl(5, 85%, 63%);
+}
+
+section.other {
+    margin-top: 48px;
+}
+
+section.other p {
+    padding-top: 0.5rem;
+}
+
+section.other article:first-of-type {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.other-summary {
+    margin-left: 16px;
+}
+
+section.other img {
+    height: 100px;
+}
+
+aside { 
+    margin-top: 16px;
+    font-size: 11px; 
+    text-align: center; 
+}
+
+aside a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+/*---------------------------------------------------------------
+------------------------ DESKTOP --------------------------
+-----------------------------------------------------------------*/
+
+@media (min-width: 500px) {
+    
+    .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 3.5rem 1fr 100px 1rem;
+        grid-template-areas:
+            'nav nav nav'
+            'main main new-section'
+            'other-1 other-2 other-3'
+            'aside aside aside';
+        max-width: 80%;
+        gap: 24px;
+        height: fit-content;
+    }
+
+    .main-content-more p {
+        background: orange;
+        padding: 0;
+    }
+    
+    nav {
+        grid-area: nav;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;        
+        font-size: 0.9rem;
+    }
+    
+    nav ul a li {
+        padding: 0 20px;
+        color: hsl(233, 8%, 79%);
+        margin-left: 20px;
+    }
+
+    li:last-of-type { /* affects all li not just the last one */
+        padding-right: 0;      
+    }
+
+    main {
+        grid-area: main;
+    }
+
+    main img { 
+        object-fit: contain;
+        height: max-content;
+    }
+
+    section.new {
+        grid-area: new-section;
+    }
+
+    article.other-1 {
+        grid-area: other-1;
+        background: yellow;
+    }
+
+    .other-2 {
+        grid-area: other-2;
+        background: yellow;
+    }
+
+    .other-3 {
+        grid-area: other-3;
+        background: yellow;
+    }
+
+    aside {
+        grid-area: aside;
+    }
+
+}
