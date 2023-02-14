@@ -1,0 +1,267 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2638
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fswiss\fcharset0 Helvetica;\f2\fnil\fcharset0 AppleColorEmoji;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28300\viewh16580\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs96 \cf0 TO DO
+\f1\fs48 \
+\
+
+\f2 \uc0\u9745 \u65039  
+\f1 Think I need to do more to understand grid algorithms.\
+Go over Comeau\'92s module on grid (don\'92t think I finished it anyway)\
+visit the official docs CSSWG\
+Read articles from other experts\
+\
+
+\f2 \uc0\u10067 
+\f1 still
+\f2  
+\f1 don\'92t
+\f2  
+\f1 know
+\f2  
+\f1 how
+\f2  
+\f1 to
+\f2  
+\f1 target
+\f2  
+\f1 border-bottom on last child of the \'93new\'94 sidebar \'85 confusing myself with all the nested elements and selectors\
+\
+
+\f2 \uc0\u10067 
+\f1 needs
+\f2  
+\f1 to
+\f2  
+\f1 be another 24px of spacing above footer or \'93other\'94 section\
+\
+
+\f2 \uc0\u10067 
+\f1 \'94read more\'94 button clickable area goes beyond the button boundaries 
+\f2 \
+
+\f1 \
+
+\f2 \uc0\u10067 
+\f1  The main issue is that grid doesn\'92t seem to work properly with nested elements ie descendants, only direct children - goes all funky and weird if I try to put more children within the parent\'92s direct children\
+But I need similar elements to be nested under a parent for semantic purposes?? Like to me the mini articles at the bottom clearly look like they belong to a section given their similar layout. Right now, they\'92re their own elements, separated so I can apply them to their own space in the underlying grid to get shit to perfectly align with each other\
+If I can get it to sit in a parent, it would be easy applying the extra space above the footer content \
+I could use flex instead of grid but not sure how to get the flex to adjust itself to the underlying grid - need to revisit on relationship between these 2 layouts\
+Or maybe I don\'92t, maybe I can just repeat a lot of times I dunno\'85. But There has to be a simpler way of making the children fill out the length of each column without me specifying the grid column/row number of each and every child\
+\
+
+\f2 \uc0\u10067  
+\f1 Think I\'92m dividing the grid wrong\
+e.g. \'93New\'94 link in nav seems to line up with edge of \'93New section\'94 and \'93growth of gaming\'94 article which makes me think there\'92s 12 columns instead of 3, 4 mini columns in each big 3 columns\
+But I don\'92t know how to break up the list so that \'93new\'94 lines up perfectly with the other sections \
+how to adjust nav menu so \'93new\'94 nav link lines up with \'93new\'94 section and growth of gaming, they look very obviously aligned\
+\
+
+\f2 \uc0\u9745 \u65039  
+\f1  addressing flex problems for different screen sizes or general resizing the window\
+
+\f2 \uc0\u10067 
+\f1 slight
+\f2  
+\f1 overflow
+\f2  
+\f1 when we\'92re approaching mobile layout, the content doesn\'92t resize as I push in on the left side of the screen but stays static and then collapses to single column mobile layout all of a sudden\
+
+\f2 \uc0\u10067 
+\f1 text overflow ellipsis for footer content is not happening \
+
+\f2 \uc0\u10067 
+\f1 also
+\f2  
+\f1 set
+\f2  
+\f1 max height of the footer stuff to 100px but not sure if right move \'85 it also means the text overflow gets clipped too early - cuts off ends of letters which have hanging tails or whatever\'85. Also may be too tiny for exceptionally large (tall) screens\
+
+\f2 \uc0\u10067 
+\f1 maybe
+\f2  
+\f1 nav
+\f2  
+\f1 needs to have flexible spacing in between too as we shrink the screen (while also keeping in line with underlying grid)\
+
+\f2 \uc0\u10067 
+\f1 Around 600px, the grid layout looks awful - too much spacing around the elements:\
+- the \'93new\'94 sidebar is too skinny\
+- I don\'92t like that the main content heading doesn\'92t line up with the desc and button\
+- too much spacing between desc and button on in-between screen sizing cos I applied flex space between which looks good on full-screen size\
+- the columns also ignore the 1fr rule I put on it and seems to be shrinking to min content it can fit. So for the first column it resides to the word \'93bright\'94 or \'93future\'94 which means the column ends up being larger than the other two\
+There needs to be a smooth transition between single grid layout then full 3 column grid layout\
+Unless I do another media query for a 2 column layout?\
+Could probably employ scroll bars for the bottom section but don\'92t think we can do that with grid cos the children aren\'92t contained in the same parent atm\
+
+\f2 \uc0\u10067  
+\f1 not
+\f2  
+\f1 even
+\f2  
+\f1 sure
+\f2  
+\f1 which
+\f2  
+\f1 min width to set for mobile - desktop\
+
+\f2 \uc0\u10067 
+\f1 150px wide is the smallest the screen can go - it ignores the padding I set around it and clips some of the content on the edges, not sure if I even need to try to fix for this cos realistically, who tries to view content on 150px \'85 world\'92s smallest computer\
+\
+
+\f2 \uc0\u9745 \u65039  
+\f1 JS
+\f2  
+\f1 stuff\
+How to incorporate the hamburger menu at the top then slide the sidebar in - how to interact with DOM\
+Think I display: none for the hamburger menu when the we pass the min-width I set for desktop\
+\
+
+\f2 \uc0\u9745 \u65039  
+\f1 check whether the font is being correctly applied\
+
+\f2 \uc0\u9745 \u65039  
+\f1 check
+\f2  
+\f1 font
+\f2  
+\f1 weights\
+
+\f2 \uc0\u9745 \u65039  
+\f1 what\'92s
+\f2  
+\f1 the
+\f2  
+\f1 font
+\f2  
+\f1 of
+\f2  
+\f1 the
+\f2  
+\f1 serif
+\f2  
+\f1 logo?
+\f2  
+\f1 Font families
+\f2  
+\f1 to
+\f2  
+\f1 use?
+\f2 \
+
+\f1 \
+
+\f2 \uc0\u9745 \u65039  
+\f1 check
+\f2  
+\f1 semantics
+\f2  \
+
+\f1 Eg.
+\f2  
+\f1 I
+\f2  
+\f1 called
+\f2  
+\f1 the
+\f2  
+\f1 bottom stuff a section \'93other\'94 but wonder if this is semantically the footer \
+Wonder if there might be better semantic alternatives for the elements I\'92ve used\
+Like is there a <desc> tag? For each article desc instead of using <p>? \
+\
+
+\f2 \uc0\u9745 \u65039  
+\f1 Test accessibility for screen readers, keyboard users\
+ Read Sara soudeins article on setting up a testing environment\
+\
+
+\f2 \uc0\u9745 \u65039  
+\f1 try incorporating css variables esp for colours and wherever else applicable, easier to refer to instead of copying and pasting all the hsls  \
+\
+
+\f2 \uc0\u9745 \u65039 
+\f1  additional things: fun animations and transitions to make the interactive elements look a bit more slick \'85 it IS a tech news website after all 
+\f2 \
+
+\f1 \
+
+\fs96 PROBLEMS ADDRESSED\
+
+\f2\fs48 \
+\uc0\u9989  
+\f1 how
+\f2  
+\f1 to
+\f2  
+\f1 get
+\f2  
+\f1 the
+\f2  
+\f1 content
+\f2  
+\f1 inside
+\f2  
+\f1 \'93new\'94
+\f2  
+\f1 bar
+\f2  
+\f1 to
+\f2  
+\f1 space
+\f2  
+\f1 itself
+\f2  
+\f1 according to how tall the content is\
+I\'92m using padding and margins but these are fixed measurements\
+Might be flex so I can use space-evenly or something\
+
+\f2 \uc0\u9745 \u65039 
+\f1  check on larger screen whether I\'92d need to use align-content/align items to get the content sitting in the middle of their containers cos the top spacing looks slightly different width to bottom 
+\fs96 \
+
+\f2\fs48 \
+\uc0\u9989  
+\f1 targeting
+\f2  
+\f1 the
+\f2  
+\f1 correct
+\f2  
+\f1 selector
+\f2  
+\f1 for
+\f2  
+\f1 different states in a complicated selector\'85or getting link to be a full block, but only making the change to a certain element when hover is activated (pretty proud of myself for not getting too confused) \'85 but I think there\'92s probably a simpler way\
+\
+
+\f2 \uc0\u9989 
+\f1  Not sure how to get the pic to fill the space of the grid as I minimise and max the size of grid without looking shit: \
+Object-fit: cover;\
+height: 100%; \
+But for mobile, the height needs to be set height otherwise the full pic will display as a tiny rectange: \
+height: calc(100vw - 48px) - take viewport current width and subtract padding on either side - seems to work in making a perfect square\
+\
+
+\f2 \uc0\u9989 
+\f1  problem: interesting thing that was happening when I was resizing was that the content at the top would get cut off\
+Html, body was set to height: 100%\
+But I redistributed to: \
+Html \{height: 100%\}\
+Body \{min-height: 100%\}\
+.content \{height: min-content\}\
+What was happening was that for some reason the children exceeded the height of the body\
+Not sure if redundant though so will need to re-check\
+\
+
+\f2 \uc0\u9989 
+\f1  At first I specified both column and row dimensions \'85 row was written like repeat(5, 1fr) but this added unnecessary gaps around elements as the browser calculated on distributing space available between each row \
+When I specified only the number of columns I wanted, each row fit around the height of the children perfectly, browser auto calculated how tall each row should be - wraps around children\
+\
+
+\f2 \uc0\u9989 
+\f1   Edge updates automatically it seems without me having to save file and refresh page, saves time}
