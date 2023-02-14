@@ -29,8 +29,8 @@ main {
 article {
     background: rgb(106, 175, 202);
 }
-
 */
+
 
 /*---------------------------------------------------------------
 ------------------------ GLOBAL STYLES --------------------------
@@ -119,6 +119,7 @@ h1 { /* semantically i think this is the most important in website as the logo *
     font-size: 2rem;
     line-height: 3.5rem;
     color: black;
+    font-family: serif;
 }
 
 h2 { /* even though main content heading is larger than h1, semantically less important imho */
@@ -262,6 +263,8 @@ aside a {
         max-width: 70%;
         gap: 24px;
         height: fit-content;
+        margin-top: auto;
+        margin-bottom: auto;
     }
 
     .main-content-more p {
@@ -288,17 +291,20 @@ aside a {
     
     nav ul {
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
         align-items: center;
         list-style: none;        
         font-size: 0.9rem;
+        margin-right: -10px;
     }
     
     nav ul a li {
-        padding: 0 20px;
+        padding: 0 10px;
         color: hsl(233, 8%, 79%);
-        margin-left: 20px;
+        margin-left: 10px;
+    }
+
+    nav ul:last-child {
+        padding-right: 0px;
     }
 
     main {
