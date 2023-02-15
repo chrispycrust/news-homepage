@@ -30,11 +30,18 @@ main {
     background: yellow;
 }
 
+section {
+    background: teal;
+}
+
 article {
     background: rgb(106, 175, 202);
 }
-*/
 
+h2 {
+    background: salmon;
+}
+*/
 
 /*---------------------------------------------------------------
 ------------------------ GLOBAL STYLES --------------------------
@@ -87,7 +94,7 @@ html {
 /* my own defaults */
 
 a {
-    text-decoration: none; /* get rid of underline */
+    text-decoration: none; /* get rid of link underlines */
 }
 
 /*---------------------------------------------------------------
@@ -111,7 +118,7 @@ body {
     gap: 24px;
     padding: 24px 0;
     margin: auto 24px;
-    height: min-content;
+    height: fit-content;
 }
 
 nav ul { /* hide navigation menu for mobile */
@@ -124,21 +131,19 @@ nav a li:hover {
 }
 
 h1 { /* semantically i think this is the most important in website as the logo */
-    font-size: 3rem;
-    line-height: 3.5rem;
-    color: black;
     font-family: serif;
+    font-size: 3rem;
+    line-height: 3rem;
+    color: black;
 }
 
 h2 { /* even though main content heading is larger than h1, semantically less important imho */
     font-size: 3rem;
     line-height: 3.5rem;
     font-weight: 800;
-    margin: auto 0; /* align title in the middle of its container */
 }
 
 h3 { /* applied to "new" section heading */
-    padding-top: 24px;
     font-size: 2rem;
     line-height: 2rem;
     color: hsl(35, 77%, 62%);
@@ -146,6 +151,8 @@ h3 { /* applied to "new" section heading */
 
 h4 { /* new section article headings */
     font-size: 1.1rem;
+    line-height: 1.5rem;
+    padding-bottom: 0.5rem;
     font-weight: 800;
     color: hsl(36, 100%, 99%);
 }
@@ -158,9 +165,8 @@ h5 { /* other section numbers ? unsure if these have semantic meaning */
 }
 
 h6 { /* other section headings */
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 800; /* ? need to double check this weight */
-    padding-top: 0.5rem;
     color: black;
 }
 
@@ -174,7 +180,7 @@ button {
     font-weight: 700;
     background-color: hsl(5, 85%, 63%);
     border: none;
-    padding: 10px 24px;
+    padding: 10px 10%;
     margin-top: 24px;
     cursor: pointer;
 }
@@ -199,27 +205,24 @@ main p {
 
 section.new {
     background: hsl(240, 100%, 5%);
-    padding: 16px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-}
-
-section.new a article {
-    padding: 24px 0px;
-    border-bottom: 1px solid hsl(233, 8%, 79%);
+    justify-content: space-around;
 }
 
 section.new a article:hover h4 { /* targeting titles of section "new" when we hover over the entire article block */
     color: hsl(35, 77%, 62%);
 }
 
-section.new { 
-    border: 0;
-}
-
 section.new p {
     color: hsl(233, 8%, 79%);
+}
+
+section.new .border-bottom {
+    border-bottom: 1px solid hsl(233, 8%, 79%);
+    padding-top: 24px;
+    margin-bottom: 24px;
 }
 
 section.other article { /* applies flex within the link block to get img, title and desc sitting side by side */
@@ -232,38 +235,25 @@ article.other-2,
 article.other-3 {
   display: flex;
   flex-direction: row;  
+  max-height: 105px;
+  text-overflow: ellipsis ellipsis;
+  overflow: hidden;
+  white-space: normal;
+}
+
+.other-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
 }
 
 a article:hover .other-summary h6 { /* targeting titles of section "new" when we hover over the entire article block */
     color:hsl(5, 85%, 63%);
 }
 
-section.other {
-    margin-top: 48px;
-}
-
 img {
     height: 100px;
-}
-
-article.other-1 p, 
-article.other-2 p,
-article.other-3 p {
-    padding-top: 0.5rem; 
-}
-
-article.other-1, 
-article.other-2,
-article.other-3 {
-    max-height: 105px;
-    text-overflow: ellipsis ellipsis;
-    overflow: hidden;
-    white-space: normal;
-}
-
-section.other article:first-of-type {
-    padding-top: 0px;
-    margin-top: 0px;
+    object-fit: cover;
 }
 
 .other-summary {
@@ -273,6 +263,7 @@ section.other article:first-of-type {
 aside { 
     font-size: 11px; 
     text-align: center; 
+    padding-bottom: 12px;
 }
 
 aside a { 
@@ -280,46 +271,31 @@ aside a {
 }
 
 /*---------------------------------------------------------------
------------------------- DESKTOP --------------------------
+------------------------ TABLET --------------------------
 -----------------------------------------------------------------*/
 
-@media (min-width: 500px) {
+@media (min-width: 520px) {
     
     .content {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    } 
 
-        max-width: 75%;
-    }
-
-    .main-content-more p {
-        background: orange;
-        padding: 0;
-    }
-
-    h1 {
-        font-size: 3.5rem;
-    }
-
-    h2 {
-        padding-right: 20px;
-    }
-    
     nav {
-        grid-column: 1 / 4;
+        grid-column: 1 / -1;
         grid-row: 1 / 2;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
-    
+
     nav ul {
         display: flex;
         align-items: center;
         list-style: none;        
         font-size: 0.9rem;
-        margin-right: -10px;
+        margin-right: -10px; /* get last item in list to align with end of  "new" section */
     }
-    
+
     nav ul a li {
         padding: 0 10px;
         color: hsl(233, 8%, 79%);
@@ -328,6 +304,53 @@ aside a {
 
     nav ul:last-child {
         padding-right: 0px;
+    }
+
+    main {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+    }
+
+    main img {
+        height: 100%;
+    }
+
+    .main-summary {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    section.other {
+        display: flex;
+        flex: 1 0 350px;
+        flex-direction: column;
+    }
+
+    section.other article {
+        padding-top: 0px;
+        margin-top: 0px;
+    }
+
+}
+
+/*---------------------------------------------------------------
+------------------------ DESKTOP --------------------------
+-----------------------------------------------------------------*/
+
+@media (min-width: 900px) {
+
+    .content {
+        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 75%;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        padding-right: 20px;
     }
 
     main {
@@ -350,9 +373,6 @@ aside a {
     .main-summary {
         grid-column: 2 / 3;
         grid-row: 4 / 5;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
     }
 
     section.new {
@@ -360,6 +380,22 @@ aside a {
         grid-row: 2 / 5;
     }
 
+    section.new .border-bottom {
+        border-bottom: 1px solid hsl(233, 8%, 79%);
+        padding-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    
+    section.other {
+        padding-top: 24px;
+        grid-column: 1 / -1;
+        grid-row: 5 / 6;
+        display: flex;
+        flex-direction: row;
+    }
+
+/*
     article.other-1 {
         grid-column: 1 / 2;
         grid-row: 5 / 6;
@@ -374,6 +410,8 @@ aside a {
         grid-column: 3 / 4;
         grid-row: 5 / 6;
     }
+
+*/
 
     aside {
         grid-column: 1 / 4;
