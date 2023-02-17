@@ -126,8 +126,8 @@ nav ul { /* hide navigation menu for mobile */
     display: none;
 }
 
-h1:hover,
-nav a li:hover {
+nav a li:hover,
+nav a li:focus {
     color: hsl(5, 85%, 63%);
 }
 
@@ -137,7 +137,7 @@ nav a li:hover {
     object-fit: contain;
 }
 
-h2 { /* even though main content heading is larger than h1, semantically less important imho */
+h2 { 
     font-size: 2.5rem;
     line-height: 3rem;
     font-weight: 800;
@@ -228,19 +228,16 @@ section.new .border-bottom {
     margin-bottom: 24px;
 }
 
-section.other article { /* applies flex within the link block to get img, title and desc sitting side by side */
-    padding: 12px 0px;
-    margin: 12px 0px;
+section.other article {
+    margin: 24px 0px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-article.other-1, 
-article.other-2,
-article.other-3 {
-  display: flex;
-  flex-direction: row;  
-  max-height: 100px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+section.other article:last-child { 
+    margin-bottom: 0;
 }
 
 .other-summary {
@@ -253,8 +250,8 @@ a article:hover .other-summary h6 { /* targeting titles of section "new" when we
     color:hsl(5, 85%, 63%);
 }
 
-img {
-    height: 100px;
+section.other img {
+    width: 100px;
     object-fit: cover;
 }
 
@@ -347,14 +344,12 @@ aside a {
     section.other {
         grid-column: 2 / -1;
         grid-row: 4 / 5;
-        padding-top: 24px;
         display: flex;
         flex-direction: column;
     }
 
     section.other article {
-        padding-top: 0px;
-        margin-top: 0px;
+        margin-bottom: 24px;
     }
 
 }
@@ -388,6 +383,7 @@ aside a {
     main img {
         grid-column: 1 / 3;
         grid-row: 2 / 3;
+        min-height: 280px;
     }
 
     .main-summary {
@@ -418,7 +414,7 @@ aside a {
     }
 
     section.other a article {
-        margin-bottom: 0;
+        margin: 0;
         padding-bottom: 0;
     }
 
@@ -428,7 +424,3 @@ aside a {
     }
 
 }
-
-
-
-
