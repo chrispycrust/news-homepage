@@ -135,7 +135,21 @@ nav a li:focus {
     width: 50px;
     height: 50px;
     object-fit: contain;
+    
 }
+
+.home:hover .logo { /* hover over parent, but animate the child */
+    transform: translateY(-5px);
+}
+
+.logo,
+nav a li,
+button a,
+section.new a article h4,
+a article .other-summary h6 {
+    transition: ease 150ms;
+}
+
 
 h2 { 
     font-size: 2.5rem;
@@ -172,6 +186,8 @@ h6 { /* other section headings */
     color: black;
 }
 
+
+
 p {
     color: hsl(236, 13%, 42%);
 }
@@ -189,7 +205,9 @@ button a {
     font-weight: 700;
     padding: 10px 20px;
     background-color: hsl(5, 85%, 63%);
+    transition: ease 150ms;
 }
+
 
 button a:hover {
     background: hsl(240, 100%, 5%);
@@ -217,6 +235,7 @@ section.new {
 section.new a article:hover h4 { /* targeting titles of section "new" when we hover over the entire article block */
     color: hsl(35, 77%, 62%);
 }
+
 
 section.new p {
     color: hsl(233, 8%, 79%);
@@ -383,7 +402,7 @@ aside a {
     main img {
         grid-column: 1 / 3;
         grid-row: 2 / 3;
-        min-height: 280px;
+        min-height: 340px; /* close to max size that image grows to on tablet to minimise sudden changes */
     }
 
     .main-summary {
