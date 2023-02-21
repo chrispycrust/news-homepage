@@ -22,6 +22,13 @@
 \f1 stuff\
 How to incorporate the hamburger menu at the top for mobile displays then slide the sidebar in - how to interact with DOM\
 \
+Instead of adding a div with an empty divider bottom and adding unnecessary padding everywhere, try <hr>\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs24 \cf0 {{\NeXTGraphic Screen Shot 2023-02-18 at 8.44.10 am.png \width11900 \height5400 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs48 \cf0 \
 
 \f2 \uc0\u9745 \u65039  
 \f1 check
@@ -113,12 +120,12 @@ how to adjust nav menu so \'93new\'94 nav link lines up with \'93new\'94 section
 \pard\pardeftab720\partightenfactor0
 
 \f3\fs24 \cf4 \cb5 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec4     \cf6 \strokec6 section\cf7 \strokec7 .other\cf4 \strokec4  \cf6 \strokec6 a\cf7 \strokec7 :first-child\cf4 \strokec4  \{\cb1 \
-\cb5         \cf8 \strokec8 margin-top\cf4 \strokec4 : \cf9 \strokec9 0\cf8 \strokec8 px\cf4 \strokec4 ;\cb1 \
+    \cf6 section\cf7 .other\cf4  \cf6 a\cf7 :first-child\cf4  \{\cb1 \
+\cb5         \cf8 margin-top\cf4 : \cf9 0\cf8 px\cf4 ;\cb1 \
 \cb5     \}\cb1 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f1\fs48 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 But them for mobile, when I targeted only the last child in mobile it works\
+\f1\fs48 \cf0 \kerning1\expnd0\expndtw0 But them for mobile, when I targeted only the last child in mobile it works\
 \
 
 \f2 \uc0\u10067  
@@ -144,7 +151,7 @@ how to adjust nav menu so \'93new\'94 nav link lines up with \'93new\'94 section
 \f2  
 \f1 thing
 \f2  
-\f1 happens: where the the images aren\'92t the same height cos they\'92re confirming to the height of the overall content . The pop lasts a short while, but it\'92s still noticeable. Not sure how to get it to fit the overall height of underlying grid
+\f1 happens: where the the images aren\'92t the same height cos they\'92re conforming to the height of the overall content . The pop lasts a short while, but it\'92s still noticeable. Not sure how to get it to fit the overall height of underlying grid
 \f2 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -158,7 +165,7 @@ how to adjust nav menu so \'93new\'94 nav link lines up with \'93new\'94 section
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\fs48 \cf0 Also does this on tiny screens cos I didn\'92t set a fixed height \'85 may clamp values?? Also that tiny little gap at the end of growth of gaming looks annoying
+\fs48 \cf0 Also does this on tiny screens cos I didn\'92t set a fixed height \'85 may clamp values?? Also that tiny little gap at the end of growth of gaming looks annoying - space between would\'92ve fixed that but when new gets too long as the screen decreases, the space between the articles becomes really displeasing to the eye
 \fs24 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf0 {{\NeXTGraphic Screen Shot 2023-02-17 at 4.35.59 pm.png \width10660 \height15600 \appleattachmentpadding0 \appleembedtype0 \appleaqc
@@ -212,9 +219,6 @@ Right now I\'92m trying to keep spacing consistent around 24px without referring
 \f2 \uc0\u9745 \u65039  
 \f1 try incorporating css variables esp for colours and wherever else applicable, easier to refer to instead of copying and pasting all the hsls  \
 \
-
-\f2 \uc0\u9745 \u65039 
-\f1  additional things: fun animations and transitions to make the interactive elements look a bit more slick \'85 it IS a tech news website after all \
 \
 
 \f2 \uc0\u9745 \u65039 
@@ -239,9 +243,15 @@ I tried a contained version in codepen and it works as expected\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \fs96 \cf0 PROBLEMS ADDRESSED\
+\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f2\fs48 \cf0 \
+\f2\fs48 \cf0 \uc0\u9989 
+\f1  additional things: fun animations and transitions to make the interactive elements look a bit more slick \'85 it IS a tech news website after all \
+21/01 couldn\'92t help myself, was curious and wanted to learn more about animation so I skipped ahead of the other stuff
+\fs96 \
+
+\f2\fs48 \
 \uc0\u9989  
 \f1 Fix spacing between elements in each of these, looks uneven\'85 I\'92ve set them to flex and space between but might use fixed space after each number \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
@@ -256,13 +266,13 @@ This is the smallest width the screen can go to before it shifts to tablet forma
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \fs24 \cf0 {{\NeXTGraphic Screen Shot 2023-02-17 at 3.13.48 pm.png \width17860 \height6240 \appleattachmentpadding0 \appleembedtype0 \appleaqc
-}¬}\
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \fs48 \cf0 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f2 \cf0 \uc0\u9989  
+\f2 \uc0\u9989  
 \f1 still have a problem where - because I\'92ve set the \'93new\'94 section to flex for desktop and allowed the spacing to be determined by how much available space there is instead of setting a fixed padding and margin - when the screen is smaller, there\'92s practically no space and everything appears Squished\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
