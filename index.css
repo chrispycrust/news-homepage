@@ -41,6 +41,15 @@ article {
 h2 {
     background: salmon;
 }
+
+nav {
+    background: blue;
+}
+
+.nav-expander {
+    background: green;
+}
+
 */
 
 /*---------------------------------------------------------------
@@ -122,9 +131,30 @@ body {
     height: fit-content;
 }
 
-nav ul { /* hide navigation menu for mobile */
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+ 
+.nav-wrapper {  /* debug for content menu */
     display: none;
 }
+
+/*
+.wrapper {
+    position: fixed;
+    background: red;
+    right: 0;
+}
+
+nav ul { 
+    display: flex;
+    flex-direction: column;
+    background: yellow;
+}
+*/
 
 nav a li:hover,
 nav a li:focus {
@@ -186,8 +216,6 @@ h6 { /* other section headings */
     color: black;
 }
 
-
-
 p {
     color: hsl(236, 13%, 42%);
 }
@@ -207,7 +235,6 @@ button a {
     background-color: hsl(5, 85%, 63%);
     transition: ease 150ms;
 }
-
 
 button a:hover {
     background: hsl(240, 100%, 5%);
@@ -235,7 +262,6 @@ section.new {
 section.new a article:hover h4 { /* targeting titles of section "new" when we hover over the entire article block */
     color: hsl(35, 77%, 62%);
 }
-
 
 section.new p {
     color: hsl(233, 8%, 79%);
@@ -301,6 +327,19 @@ aside a {
     .content {
         grid-template-columns: 1fr 1fr;
     } 
+
+    .nav-wrapper {
+        display: block;
+        position: static;
+    }
+
+    nav ul {
+        flex-direction: row;
+    }
+
+    .nav-expander {
+        display: none;
+    }
 
     h2 {
         font-size: 3rem;
