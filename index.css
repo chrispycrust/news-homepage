@@ -56,6 +56,15 @@ nav {
 ------------------------ GLOBAL STYLES --------------------------
 -----------------------------------------------------------------*/
 
+:root {
+    --primary: hsl(36, 100%, 99%);
+    --new-section: hsl(35, 77%, 62%); /* soft orange */
+    --links: hsl(5, 85%, 63%); /* soft red */
+    --soft: hsl(233, 8%, 79%); /* grayish blue */
+    --text: hsl(236, 13%, 42%); /* dark grayish blue */
+    --secondary: hsl(240, 100%, 5%); /* very dark blue */
+}
+
 /* borrowed off Josh Comeau */
 
 *, *::before, *::after {
@@ -74,7 +83,7 @@ html {
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    font-size: 0.9rem;
+    font-size: 0.9375rem; /* 15 px equivalent */
 }
   
 img, picture, video, canvas, svg {
@@ -118,7 +127,7 @@ body {
     justify-content: center;
     align-items: center;
     /* initially had place content which only works if the value of both justify-content and align-content are center */
-    background-color: hsl(36, 100%, 99%);
+    background-color: var(--primary);
     min-height: 100%;
 }
 
@@ -137,41 +146,82 @@ nav {
     justify-content: space-between;
     align-items: center;
 }
- 
-.nav-wrapper {  /* debug for content menu */
-    display: none;
-}
-
-/*
-.wrapper {
-    position: fixed;
-    background: red;
-    right: 0;
-}
-
-nav ul { 
-    display: flex;
-    flex-direction: column;
-    background: yellow;
-}
-*/
-
-nav a li:hover,
-nav a li:focus {
-    color: hsl(5, 85%, 63%);
-}
 
 .logo {
     width: 50px;
     height: 50px;
     object-fit: contain;
-    
 }
 
-.home:hover .logo { /* hover over parent, but animate the child */
+.home:hover .logo,
+button.nav-expander:hover img,
+button.nav-close:hover img { /* hover over parent, but animate the child */
     transform: translateY(-5px);
 }
 
+nav ul {
+    display: none; /* hide tablet and desktop menu version */
+}
+
+.nav-expanded {
+    display: none;
+    min-width: 65%;
+    padding: 24px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: var(--primary);
+}
+
+nav button {
+    cursor: pointer;
+    background: none;
+    margin: 0;
+}
+
+button.nav-close {
+    margin: 10px 0 80px 0;
+    align-self: end;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+}
+
+.opacity {
+    opacity: 0.5;
+}
+
+.nav-expanded ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;  
+    font-size: 1.2rem;
+}
+
+.nav-expanded ul li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: var(--secondary);
+}
+
+nav a li:hover,
+nav a li:focus {
+    color: var(--links);
+}
+
+a img {
+    display: flex;
+    align-content: center;
+}
+
+img.nav-close {
+    margin-bottom: 80px;
+}
+
+nav img,
 .logo,
 nav a li,
 button a,
@@ -179,7 +229,6 @@ section.new a article h4,
 a article .other-summary h6 {
     transition: ease 150ms;
 }
-
 
 h2 { 
     font-size: 2.5rem;
@@ -192,7 +241,7 @@ h3 { /* applied to "new" section heading */
     line-height: 2rem;
     padding-bottom: 24px;
     font-weight: 600;
-    color: hsl(35, 77%, 62%);
+    color: var(--new-section);
 }
 
 h4 { /* new section article headings */
@@ -207,7 +256,7 @@ h5 { /* other section numbers ? unsure if these have semantic meaning */
     font-size: 1.4rem;
     line-height: 1.4rem;
     font-weight: 800; /* ? need to double check this weight */
-    color: hsl(233, 8%, 79%);
+    color: var(--soft);
 }
 
 h6 { /* other section headings */
@@ -221,8 +270,8 @@ p {
 }
 
 button {
-    display: flex; 
-    border: none; 
+    display: flex;
+    border: none;
     margin-top: 24px;
 }
 
@@ -237,7 +286,7 @@ button a {
 }
 
 button a:hover {
-    background: hsl(240, 100%, 5%);
+    background: var(--secondary);
 }
 
 main {
@@ -251,7 +300,7 @@ main img {
 }
 
 section.new {
-    background: hsl(240, 100%, 5%);
+    background: var(--secondary);
     margin-top: 24px;
     padding: 24px;
     display: flex;
@@ -260,15 +309,15 @@ section.new {
 }
 
 section.new a article:hover h4 { /* targeting titles of section "new" when we hover over the entire article block */
-    color: hsl(35, 77%, 62%);
+    color: var(--new-section);
 }
 
 section.new p {
-    color: hsl(233, 8%, 79%);
+    color: var(--soft);
 }
 
 section.new .border-bottom {
-    border-bottom: 1px solid hsl(233, 8%, 79%);
+    border-bottom: 1px solid var(--soft);
     padding-top: 24px;
     margin-bottom: 24px;
 }
@@ -333,10 +382,7 @@ aside a {
         position: static;
     }
 
-    nav ul {
-        flex-direction: row;
-    }
-
+    .nav-expanded,
     .nav-expander {
         display: none;
     }
@@ -356,17 +402,23 @@ aside a {
         justify-content: space-between;
     }
 
+    .menu-expanded {
+        display: none;
+    }
+
     nav ul {
         display: flex;
-        align-items: center;
-        list-style: none;        
+        flex-direction: row;
+        list-style: none;
+        background: none;
+        align-items: center;      
         font-size: 0.9rem;
         margin-right: -10px; /* get last item in list to align with end of  "new" section */
     }
 
     nav ul a li {
         padding: 0 10px;
-        color: hsl(233, 8%, 79%);
+        color: var(--soft);
         margin-left: 10px;
     }
 
@@ -416,11 +468,11 @@ aside a {
 ------------------------ DESKTOP --------------------------
 -----------------------------------------------------------------*/
 
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
 
     .content {
         grid-template-columns: 1fr 1fr 1fr;
-        max-width: 1200px;
+        max-width: 1440px;
     }
 
     h2 {
@@ -456,7 +508,7 @@ aside a {
     }
 
     section.new .border-bottom {
-        border-bottom: 1px solid hsl(233, 8%, 79%);
+        border-bottom: 1px solid var(--soft);
         padding-top: 0px;
         margin-bottom: 0px;
     } 
