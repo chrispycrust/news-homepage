@@ -190,8 +190,20 @@ button.nav-close {
     flex-direction: column;
 }
 
-.opacity {
+.screen {
+    position: fixed;
+    background: black;
+    height: 100%;
+    width: 100%;
+    top: 0;
     opacity: 0.5;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.show {
+    display: block;
 }
 
 .nav-expanded ul {
@@ -281,7 +293,7 @@ button a {
     letter-spacing: 5px;
     font-weight: 700;
     padding: 10px 20px;
-    background-color: hsl(5, 85%, 63%);
+    background-color: var(--links);
     transition: ease 150ms;
 }
 
