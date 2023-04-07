@@ -66,6 +66,8 @@ To be completed
         - still not sure where it comes from, likely because the main wrapping content has padding and margins. fixed by using negative margin
       - ⬜️ black transparent screen will still be effective if the user viewing it on desktop pulls the screen larger without closing the mobile menu (hence, triggering the class that hides the screen), the mobile menu disappears but the black screen stays behind and there's no way to turn it off. need to find a way to automatically trigger screen off if user forgets to close on a desktop
 - ⬜️ need yet another media query adjusting for screens larger than 1920px esp 4k, it's too tiny
+      - how to restructure my html so the screen is sitting behind the expanded navigation and on top of everything else? 
+      - mysterious white padding on the side
 - ⬜️ Instead of adding a div with an empty divider bottom and adding unnecessary padding everywhere, try `<hr>` to provide visual break and divide content. These can be styled
 - ⬜️ how to properly use svgs, is there a conventional way they need to be treated?
 - check semantics Eg. I called the bottom stuff a section “other” but wonder if this is semantically the footer. Wonder if there might be better semantic alternatives for the elements I’ve used Like is there a `<desc>` tag? For each article desc instead of using `<p>`?
