@@ -60,6 +60,8 @@ To be completed
 - menu for small widths and mobile
   - ⬜️ add slide in animation for hamburger menu to keep reader tied to context
   - ⬜️ background has a semi-transparent dark layer that overlays the rest of the content when menu is activated
+      - how to restructure my html so the screen is sitting behind the expanded navigation and on top of everything else? 
+      - mysterious white padding on the side
 - ⬜️ Instead of adding a div with an empty divider bottom and adding unnecessary padding everywhere, try `<hr>` to provide visual break and divide content. These can be styled
 - ⬜️ how to properly use svgs, is there a conventional way they need to be treated?
 - check semantics Eg. I called the bottom stuff a section “other” but wonder if this is semantically the footer. Wonder if there might be better semantic alternatives for the elements I’ve used Like is there a `<desc>` tag? For each article desc instead of using `<p>`?
