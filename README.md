@@ -48,7 +48,7 @@ To be completed
 
 # What I learned
 
-- **What effective learning is.** For a long time I was struggling with getting elements to line up neatly with each other with the underlying grid to match the design. I ended up discovering that grid doesn’t apply to non-direct descendants. Later, I realised I already read this section in Comeau's CSS course[^1] but I completely forgot about it because I didn’t have to apply it anywhere. Indeed, I finished the grid problems in the course, but applying it to a complete projectl like this home page presented more problems and gaps in my understanding. It goes to show I need to asap get into a project and discover challenges and difficulties for myself, to truly understand how the properties work before a lesson gets through to me. It's as Sonke Ahrens talked about, I learn better when I struggle on my own first for a while and without being introduced because I'm forced to discover things for myself. The struggle is memorable. 
+- **How I learn best.** For a long time I was struggling with getting elements to line up neatly with each other with the underlying grid to match the design. I ended up discovering that grid doesn’t apply to non-direct descendants. Later, I realised I already read this section in Comeau's CSS course[^1] but I completely forgot about it because I didn’t have to apply it anywhere. Indeed, I finished the grid problems in the course, but applying it to a complete projectl like this home page presented more problems and gaps in my understanding. It goes to show I need to asap get into a project and discover challenges and difficulties for myself, to truly understand how the properties work before a lesson gets through to me. It's as Sonke Ahrens talked about, I learn better when I struggle on my own first for a while and without being introduced because I'm forced to discover things for myself. The struggle is memorable. 
 
 - The challenge of coding - once I fix one problem, another one pops up
 - Learnt about the importance of semantics and accessibility
@@ -59,13 +59,15 @@ To be completed
 
 - menu for small widths and mobile
   - ⬜️ add slide in animation for hamburger menu to keep reader tied to context
+    - potentially position the menu off screen with negative padding/margin, then add transformation on it and transition animation
+    - the animation happens when the screen loads automatically, but on click the animation instruction is ignored
   - ⬜️ background has a semi-transparent dark layer that overlays the rest of the content when menu is activated
-      - ✅ ~~how to restructure my html so the screen is sitting behind the expanded navigation and on top of everything else?~~
-        - screen is meant to sit behind mobile menu but is on top of everything by default. added z-index to mobile to pull it forward
-      - ✅ ~~mysterious white padding on the side~~
-        - still not sure where it comes from, likely because the main wrapping content has padding and margins. fixed by using negative margin
-      - ⬜️ black transparent screen will still be effective if the user viewing it on desktop pulls the screen larger without closing the mobile menu (hence, triggering the class that hides the screen), the mobile menu disappears but the black screen stays behind and there's no way to turn it off. need to find a way to automatically trigger screen off if user forgets to close on a desktop
-- ⬜️ need yet another media query adjusting for screens larger than 1920px esp 4k, it's too tiny
+    - ✅ ~~how to restructure my html so the screen is sitting behind the expanded navigation and on top of everything else?~~
+        - named this layer class `.screen`. it's meant to sit behind mobile menu but is on top of everything by default. intially added z-index to mobile menu to pull it forward, but realised I placed the screen div in the wrong order. elements are rendered top to bottom so screen div would need to be on top of the navigation menu to sit behind it. this means there's no need for z-index property.
+    - ✅ ~~mysterious white padding on the side~~
+      - still not sure where it comes from, likely because the main wrapping content has padding and margins. fixed by using negative margin
+    - ⬜️ black transparent screen will still be effective if a user views it on desktop on a tiny screen then manually increases screen size without closing the mobile menu. this doesn't trigger the javascript that hides the screen, which means while the mobile menu disappears, the black screen stays and the user will have no way to turn it off. need to find a way to automatically trigger screen off if user forgets to close mobile menu on a desktop
+- ⬜️ need yet another media query adjusting for multiple screens larger than 1920px esp 4k, it's too tiny
       - how to restructure my html so the screen is sitting behind the expanded navigation and on top of everything else? 
       - mysterious white padding on the side
 - ⬜️ Instead of adding a div with an empty divider bottom and adding unnecessary padding everywhere, try `<hr>` to provide visual break and divide content. These can be styled
@@ -208,6 +210,8 @@ To be completed
   ☑️ check on larger screen whether I’d need to use align-content/align items to get the content sitting in the middle of their containers cos the top spacing looks slightly different width to bottom 
 
 - ✅ targeting the correct selector for different states in a complicated selector…or getting link to be a full block, but only making the change to a certain element when hover is activated (pretty proud of myself for not getting too confused) … but I think there’s probably a simpler way
+
+need examples - talking about the section headings in the "other" or "new" section
 
 - ✅ Not sure how to get the pic to fill the space of the grid as I minimise and max the size of grid without looking shit: 
   Object-fit: cover;
