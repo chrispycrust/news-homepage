@@ -1,14 +1,13 @@
 // click on nav-expander button
-// slide nav-expanded into view
+// slide mobile-menu into view
 document.querySelector(".nav-expander").addEventListener("click", () => {
-    document.querySelector(".nav-expanded").classList.add("display");
+    document.querySelector(".mobile-menu").classList.add("display-menu");
     document.querySelector(".screen").classList.add("show");
 })
 
 // click on nav-close button
-// slide nav-expanded out of view
+// slide mobile-menu out of view
 document.querySelector(".nav-close").addEventListener("click", () => {
-    document.querySelector(".nav-expanded").classList.remove("display");
-    document.querySelector(".content").classList.remove("opacity");
+    document.querySelector(".mobile-menu").classList.remove("display-menu");
     document.querySelector(".screen").classList.remove("show");
 })
