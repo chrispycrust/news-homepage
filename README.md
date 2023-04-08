@@ -62,15 +62,22 @@ To be completed
   - ✅ ~~add slide in animation for hamburger menu to keep reader tied to context~~
     - strategy: position the menu off screen with negative padding/margin, then add transformation on it and transition animation
     - the animation happens when the screen loads automatically, but on click the animation instruction is ignored
-      - i initially hid both screen and menu with `display: none` which will only display when hamburger menu is clicked to call mobile menu into view. however, this property seems to interfere with animations (not sure why). the solution was to have all the elements already loaded where mobile menu is off-screen and opacity of the screen reduced to 0. on click, the mobile menu will slide into view and black screen gradually raises opacity. this means i can't rely on the DOM order to have the screen sitting behind the nav. restructured html so screen renders after navigation and apply z-index to pull nav ahead of screen so we can actually click the hamburger menu.
-      - ⬜️ when clicking close button, 'X' disappears briefly as menu slides out of view
+      - I initially hid both screen and menu with `display: none` which will change value when hamburger menu is clicked and call mobile menu into view and activate semi-opaque black screen behind.However, this property blocked animations from occurring after buttons are clicked (not sure why). 
+      
+      The solution was to have all the elements already loaded where mobile menu is off-screen and opacity of the screen reduced to 0.This meant I can't rely on the DOM order to have the screen sitting behind the nav. Restructured html doc so screen element renders after navigation menu and applied z-index to nav menu so it appears in front allowing us to click hamburger menu.
+        - ✅ ~~Black screen opacity reduced to 0 blocks us from interacting with other buttons on the website even when mobile menu disappears~~
+          - workaround animation to slide in screen from opposite side instead of just fading in
+            - ⬜️ find a way to fade screen in
+        - ⬜️ when clicking close button, 'X' disappears briefly as menu slides out of view
       - ⬜️ `document.querySelector` vs `document.getElementBy`?
+      - ⬜️ need to learn more complex animations to achieve natural looking effect where the menu buttons work like actual buttons (depress slightly then slowly resume original position)
   - ✅ ~~background has a semi-transparent dark layer that overlays the rest of the content when menu is activated~~
     - ✅ ~~how to restructure my html so the screen is sitting behind the expanded navigation and on top of everything else?~~
         - ~~named this layer class `.screen`. it's meant to sit behind mobile menu but is on top of everything by default. intially added z-index to mobile menu to pull it forward, but realised I placed the screen div in the wrong order. elements are rendered top to bottom so screen div would need to be on top of the navigation menu to sit behind it. this means there's no need for z-index property.~~
     - ✅ ~~mysterious white padding on the side~~
       - still not sure where it comes from, likely because the main wrapping content has padding and margins. fixed by using negative margin
-    - ⬜️ black transparent screen will still be effective if a user views it on desktop on a tiny screen then manually increases screen size without closing the mobile menu. this doesn't trigger the javascript that hides the screen, which means while the mobile menu disappears, the black screen stays and the user will have no way to turn it off. need to find a way to automatically trigger screen off if user forgets to close mobile menu on a desktop
+    - ✅ ~~black transparent screen will still be effective if a user views it on desktop on a tiny screen then manually increases screen size without closing the mobile menu. this doesn't trigger the javascript that hides the screen, which means while the mobile menu disappears, the black screen stays and the user will have no way to turn it off. need to find a way to automatically trigger screen off if user forgets to close mobile menu on a desktop~~
+      - set screen to `display: none` on tablet view
 - ⬜️ need yet another media query adjusting for multiple screens larger than 1920px esp 4k, it's too tiny
       - how to restructure my html so the screen is sitting behind the expanded navigation and on top of everything else? 
       - mysterious white padding on the side
