@@ -145,6 +145,7 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    z-index: 1;
 }
 
 .logo {
@@ -153,9 +154,7 @@ nav {
     object-fit: contain;
 }
 
-.home:hover .logo,
-button.nav-expander:hover img,
-button.nav-close:hover img { /* hover over parent, but animate the child */
+.home:hover .logo { /* hover over parent, but animate the child */
     transform: translateY(-5px);
 }
 
@@ -165,18 +164,22 @@ nav ul {
 
 .mobile-menu {
     position: fixed;
-    width: 300px;
-    padding: 24px;
     height: 100%;
+    width: 65%;
+    padding: 24px;
     top: 0;
-    right: -300px;
+    right: -65%; /* offset menu when not called to prepare for animation */
     background-color: var(--primary);
-    display: none;
-    transform: translateX(-300px);
-    transition: transform ease-in 300ms;
+    transition: transform ease-in-out 300ms;
+}
+
+.clicked {
+    transform: translateY(5px);
+    transition: transform ease-in 10ms;
 }
 
 .display-menu {
+    transform: translateX(-100%); /* shift menu in by its own width */
     display: flex;
     flex-direction: column;
 }
@@ -188,24 +191,30 @@ nav button {
 }
 
 button.nav-close {
+    position: relative;
     margin: 10px 0 80px 0;
-    align-self: end;
+    transition: transform ease-in 10ms;
+}
+
+button.nav-close img {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .screen {
     position: fixed;
     background: black;
     height: 100%;
-    width: 100%;
+    width: 200%;
     top: 0;
-    opacity: 0.5;
+    opacity: 0;
     margin-left: -200px;
-    display: none;
-    transition: all ease 500ms;
+    transition: ease 500ms;
 }    
 
 .show {
-    display: block;
+    opacity: 0.5;
 }
 
 .mobile-menu ul {
@@ -229,10 +238,6 @@ nav a li:focus {
 a img {
     display: flex;
     align-content: center;
-}
-
-img.nav-close {
-    margin-bottom: 80px;
 }
 
 nav img,
