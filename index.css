@@ -209,11 +209,13 @@ button.nav-close img {
     width: 200%;
     top: 0;
     opacity: 0;
+    transform: translateX(-100%);
     margin-left: -200px;
     transition: ease 500ms;
 }    
 
 .show {
+    transform: translateX(0);
     opacity: 0.5;
 }
 
@@ -422,6 +424,10 @@ aside a {
     }
 
     .menu-expanded {
+        display: none;
+    }
+
+    .screen {
         display: none;
     }
 
