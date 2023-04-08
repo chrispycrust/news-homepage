@@ -54,16 +54,20 @@ To be completed
 - Learnt about the importance of semantics and accessibility
 - How to use dev tools in browser throughout the coding process to test and check changes and help troubleshoot problems
 - Browser actually updates automatically, it seems, without me having to save file and refresh page, saves time
+- Writing better commit messages
 
 ### **Outstanding problems**
 
 - menu for small widths and mobile
-  - ⬜️ add slide in animation for hamburger menu to keep reader tied to context
-    - potentially position the menu off screen with negative padding/margin, then add transformation on it and transition animation
+  - ✅ ~~add slide in animation for hamburger menu to keep reader tied to context~~
+    - strategy: position the menu off screen with negative padding/margin, then add transformation on it and transition animation
     - the animation happens when the screen loads automatically, but on click the animation instruction is ignored
-  - ⬜️ background has a semi-transparent dark layer that overlays the rest of the content when menu is activated
+      - i initially hid both screen and menu with `display: none` which will only display when hamburger menu is clicked to call mobile menu into view. however, this property seems to interfere with animations (not sure why). the solution was to have all the elements already loaded where mobile menu is off-screen and opacity of the screen reduced to 0. on click, the mobile menu will slide into view and black screen gradually raises opacity. this means i can't rely on the DOM order to have the screen sitting behind the nav. restructured html so screen renders after navigation and apply z-index to pull nav ahead of screen so we can actually click the hamburger menu.
+      - ⬜️ when clicking close button, 'X' disappears briefly as menu slides out of view
+      - ⬜️ `document.querySelector` vs `document.getElementBy`?
+  - ✅ ~~background has a semi-transparent dark layer that overlays the rest of the content when menu is activated~~
     - ✅ ~~how to restructure my html so the screen is sitting behind the expanded navigation and on top of everything else?~~
-        - named this layer class `.screen`. it's meant to sit behind mobile menu but is on top of everything by default. intially added z-index to mobile menu to pull it forward, but realised I placed the screen div in the wrong order. elements are rendered top to bottom so screen div would need to be on top of the navigation menu to sit behind it. this means there's no need for z-index property.
+        - ~~named this layer class `.screen`. it's meant to sit behind mobile menu but is on top of everything by default. intially added z-index to mobile menu to pull it forward, but realised I placed the screen div in the wrong order. elements are rendered top to bottom so screen div would need to be on top of the navigation menu to sit behind it. this means there's no need for z-index property.~~
     - ✅ ~~mysterious white padding on the side~~
       - still not sure where it comes from, likely because the main wrapping content has padding and margins. fixed by using negative margin
     - ⬜️ black transparent screen will still be effective if a user views it on desktop on a tiny screen then manually increases screen size without closing the mobile menu. this doesn't trigger the javascript that hides the screen, which means while the mobile menu disappears, the black screen stays and the user will have no way to turn it off. need to find a way to automatically trigger screen off if user forgets to close mobile menu on a desktop
