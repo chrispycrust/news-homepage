@@ -1,6 +1,6 @@
-/*---------------------------------------------------------------
------------------------- DEBUGGING --------------------------
------------------------------------------------------------------
+/*------------------------------------------------------------
+|                          DEBUGGING                          |
+--------------------------------------------------------------
 
 body { 
     background: red;
@@ -52,9 +52,9 @@ nav {
 
 */
 
-/*---------------------------------------------------------------
------------------------- GLOBAL STYLES --------------------------
------------------------------------------------------------------*/
+/*------------------------------------------------------------
+|                           GLOBALS                           |
+--------------------------------------------------------------*/
 
 :root {
     --primary: hsl(36, 100%, 99%);
@@ -115,13 +115,12 @@ a {
     text-decoration: none; /* get rid of link underlines */
 }
 
-/*---------------------------------------------------------------
------------------------- MOBILE STYLE --------------------------
------------------------------------------------------------------ */
+/*------------------------------------------------------------
+|                            MOBILE                           |
+--------------------------------------------------------------*/
 
 body {
     font-family: 'Inter', /* find another font fall-back before sans serif */ sans-serif;
-    line-height: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -388,9 +387,9 @@ aside a {
     color: hsl(228, 45%, 44%); 
 }
 
-/*---------------------------------------------------------------
------------------------- TABLET --------------------------
------------------------------------------------------------------*/
+/*------------------------------------------------------------
+|                            TABLET                           |
+--------------------------------------------------------------*/
 
 @media (min-width: 520px) {
     
@@ -489,15 +488,15 @@ aside a {
 
 }
 
-/*---------------------------------------------------------------
------------------------- DESKTOP --------------------------
------------------------------------------------------------------*/
+/*------------------------------------------------------------
+|                        1280px DESKTOP                       |
+--------------------------------------------------------------*/
 
 @media (min-width: 1000px) {
 
     .content {
         grid-template-columns: 1fr 1fr 1fr;
-        max-width: 1440px;
+        max-width: 1280px;
     }
 
     h2 {
@@ -556,6 +555,187 @@ aside a {
     aside {
         grid-column: 1 / 4;
         grid-row: 6 / 7;
+    }
+
+}
+
+
+/*------------------------------------------------------------
+|                        1920px DESKTOP                       |
+--------------------------------------------------------------*/
+
+@media (min-width: 1920px) {
+
+    .content {
+        max-width: 1400px;
+    }
+
+}
+
+/*------------------------------------------------------------
+|                        2560px DESKTOP                       |
+--------------------------------------------------------------
+multiply all mobile values by 1.25
+*/
+
+@media (min-width: 2560px) {
+
+    .content {
+        max-width: 1920px;
+    }
+
+    body {
+        font-size: 1.171875rem;
+        line-height: 1.875;
+    }
+
+    .logo {
+        width: 62.5px;
+        height: 62.5px;
+    }
+
+    nav ul {
+        font-size: 1.171875rem;
+    }
+
+    nav ul a li {
+        padding: 0 15px;
+    }
+
+    h2 { 
+        font-size: 3.125rem;
+        line-height: 3.75rem;
+    }
+    
+    h3 { /* applied to "new" section heading */
+        font-size: 3.125rem;
+        line-height: 3.125rem;
+        padding-bottom: 30.15625px;
+    }
+    
+    h4 { /* new section article headings */
+        font-size: 1.375rem;
+        line-height: 1.875rem;
+        padding-bottom: 0.5rem;
+    }
+    
+    h5 { /* other section numbers ? unsure if these have semantic meaning */ 
+        font-size: 1.75rem;
+        line-height: 1.75rem;
+    }
+    
+    h6 { /* other section headings */
+        font-size: 1.25rem;
+    }
+    
+    button a {
+        font-size: 1rem;
+        letter-spacing: 6.25px;
+        padding: 12.5px 25px;
+    }
+
+    button {
+        margin-top: 30px;
+    }
+
+    section.new {
+        padding: 30px;
+    }
+
+    section.other img {
+        width: 150px;
+    }
+
+    aside { 
+        font-size:13.75px; 
+    }
+
+}
+
+/*------------------------------------------------------------
+|                         4k DESKTOP                         |
+--------------------------------------------------------------
+multiply all mobile values by 2 
+*/
+
+@media (min-width: 3840px) {
+
+    .content {
+        max-width: 3000px;
+        gap: 48px;
+        padding: 48px 0;
+        margin: auto 48px;
+    }
+
+    body {
+        font-size: 1.875rem;
+        line-height: 3rem;
+    }
+
+    main img {
+        min-height: 825px;
+        object-fit: cover;
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    nav ul {
+        font-size: 2rem;
+    }
+
+    nav ul a li {
+        padding: 0 20px;
+    }
+
+    h2 { 
+        font-size: 5rem;
+        line-height: 6.25rem;
+    }
+    
+    h3 { /* applied to "new" section heading */
+        font-size: 4rem;
+        line-height: 6rem;
+        padding-bottom: 24px;
+    }
+    
+    h4 { /* new section article headings */
+        font-size: 2.2rem;
+        line-height: 3rem;
+        padding-bottom: 1rem;
+    }
+    
+    h5 { /* other section numbers ? unsure if these have semantic meaning */ 
+        font-size: 2.8rem;
+        line-height: 2.8rem;
+    }
+    
+    h6 { /* other section headings */
+        font-size: 2rem;
+    }
+
+    button {
+        margin-top: 48px;
+    }
+    
+    button a {
+        font-size: 1.5rem;
+        letter-spacing: 10px;
+        padding: 20px 40px;
+    }
+
+    section.new {
+        padding: 48px;
+    }
+
+    section.other img {
+        width: 200px;
+    }
+
+    aside { 
+        font-size: 22px; 
     }
 
 }
